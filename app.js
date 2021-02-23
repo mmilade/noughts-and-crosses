@@ -36,32 +36,74 @@ const getPlayerName = () => {
 
 }
 
+// const gamePlay = () => {
+//   const box = document.querySelectorAll(".middle > div")
+//   if (player1Turn) {
+//     for (let i = 0; i < 9; i++) {
+//       box[i].addEventListener("click", () => {
+//         box[i].style.backgroundColor = "black";
+//         box[i].style.color = "#33ccff";
+//         box[i].style.textAlign = "center";
+//         // box[i].style.verticalAlign = "middle";
+//         // box[i].style.height = "100%";
+//         // box[i].style.lineHeight = "100%"
+//         box[i].style.fontSize = "50pt";
+//         // box[i].style.padding = "20px 0 0 0"
+//         box[i].style.display = "flex";
+//         box[i].style.alignItems = "center";
+//         box[i].style.justifyContent = "center";
+//         box[i].innerHTML = "X";
+//       })
+//     }
+//   } else {
+//     for (let i = 0; i < 9; i++) {
+//       box[i].addEventListener("click", () => {
+//         box[i].style.backgroundColor = "black";
+//         box[i].style.color = "#33ccff";
+//         box[i].style.textAlign = "center";
+//         box[i].style.fontSize = "50pt";
+//         box[i].style.display = "flex";
+//         box[i].style.alignItems = "center";
+//         box[i].style.justifyContent = "center";
+//         box[i].innerHTML = "O";
+//       })
+//     }
+//   }
+// }
+
+
 const gamePlay = () => {
   const box = document.querySelectorAll(".middle > div")
-  if (player1Turn) {
-    for (let i = 0; i < 9; i++) {
-      box[i].addEventListener("click", () => {
+  for (let i = 0; i < 9; i++) {
+    
+    if (player1Turn) {
+        box[i].addEventListener("click", () => {
         box[i].style.backgroundColor = "black";
         box[i].style.color = "#33ccff";
         box[i].style.textAlign = "center";
-        // box[i].style.verticalAlign = "middle";
-        // box[i].style.height = "100%";
-        // box[i].style.lineHeight = "100%"
         box[i].style.fontSize = "50pt";
-        // box[i].style.padding = "20px 0 0 0"
         box[i].style.display = "flex";
         box[i].style.alignItems = "center";
         box[i].style.justifyContent = "center";
         box[i].innerHTML = "X";
-      })
-    }
-    player1Turn = false;
-    // console.log(box);
-    // document.querySelectorAll('section > div:nth-child(-n+3)')
-  } else {
-    
+        })
+      } else {
+        box[i].addEventListener("click", () => {
+          box[i].style.backgroundColor = "black";
+          box[i].style.color = "#33ccff";
+          box[i].style.textAlign = "center";
+          box[i].style.fontSize = "50pt";
+          box[i].style.display = "flex";
+          box[i].style.alignItems = "center";
+          box[i].style.justifyContent = "center";
+          box[i].innerHTML = "O";
+          })
+      }
+      player1Turn = !player1Turn;
+  
   }
 }
+
 
 const winner = () => {
   bottomContainer.innerHTML = "Player 1 won!"
