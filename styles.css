@@ -35,7 +35,7 @@ main .container {
 }
 
 .top div {
-  border: 1px solid blue;
+  border: 1px solid black;
   width: 40%;
   height: 40%;
   padding: 10px;
@@ -50,7 +50,25 @@ main .container {
   padding: 10px;
 }
 
+/* .middle {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  gap: 10px;
+  height: 400px;
+  padding: 10px;
+} */
+
+/* .middle div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
 .bottom {
   height: 100px;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
