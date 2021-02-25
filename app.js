@@ -15,6 +15,10 @@ let player1Score = 0;
 let player2Score = 0;
 let player1Turn = true;
 let gameOver = false;
+let isItDraw = false;
+noOfFilledBoxes = 0;
+// player1.innerHTML = player1.innerHTML + " - Score: " + player1Score
+// player2.innerHTML = player2.innerHTML + " - Score: " + player2Score
 // const box = document.createElement("div");
 // const box = document.querySelectorAll(".middle > div")
 let box = []
@@ -74,10 +78,15 @@ const gamePlay = () => {
           box[i].style.alignItems = "center";
           box[i].style.justifyContent = "center";
           box[i].innerHTML = "X";
+          noOfFilledBoxes += 1;
           player1Turn = !player1Turn;
           // player1.innerHTML += " 1"
           bottomContainer.innerHTML = `Next turn: ${player2.innerHTML}`
           winner();
+          // filledBoxes();
+          console.log(noOfFilledBoxes);
+          postDrawMessage();
+          // console.log("Draw?"+isItDraw);
           }
 
           
@@ -92,18 +101,25 @@ const gamePlay = () => {
           box[i].style.alignItems = "center";
           box[i].style.justifyContent = "center";
           box[i].innerHTML = "O";
+          noOfFilledBoxes += 1;
           player1Turn = !player1Turn;
           // player2.innerHTML += " 2"
           bottomContainer.innerHTML = `Next turn: ${player1.innerHTML}`
           winner();
+          console.log(noOfFilledBoxes);
+          postDrawMessage();
+          // filledBoxes();
+          // console.log("Draw?"+isItDraw);
         }
-
+        console.log("1-Draw?"+isItDraw);
 
       })
-
+      console.log("2-Draw?"+isItDraw);
     
   }
   console.log(box);
+  console.log("3-Draw?"+isItDraw);
+  // isItDraw = true;
 }
 
 
@@ -121,30 +137,55 @@ const winner = () => {
 
         if (player1Turn) {
           player2Score += 1;
-          bottomContainer.style.fontSize = "20pt";
-          bottomContainer.innerHTML = `${player2.innerHTML} Won. Current score is ${player2Score}`
+          // bottomContainer.style.fontSize = "20pt";
+          bottomContainer.innerHTML = `${player2.innerHTML} Won. Current score >>>  ${player1.innerHTML}: ${player1Score} and ${player2.innerHTML}: ${player2Score}`
           player1.style.backgroundColor = "rgb(154, 154, 207)"
           player2.style.backgroundColor = "yellow"
           // gameOver = true;
         } else {
           player1Score += 1;
-          bottomContainer.style.fontSize = "20pt";
-          bottomContainer.innerHTML = `${player1.innerHTML} Won. Current score is ${player1Score}`
+          // bottomContainer.style.fontSize = "20pt";
+          bottomContainer.innerHTML = `${player1.innerHTML} Won. Current score >>>  ${player1.innerHTML}: ${player1Score} and ${player2.innerHTML}: ${player2Score}`
           player2.style.backgroundColor = "rgb(154, 154, 207)"
           player1.style.backgroundColor = "yellow"
           // gameOver = true;
         }
 
       gameOver = true;
+      isItDraw = false;
+      // console.log("Draw?"+isItDraw);
       console.log(gameOver);
-      // startGame();
-    // console.log("good");
-    disableGrid();
+      disableGrid();
+      // filledBoxes();
+      // continueGame();
   } else {
-    // console.log("bad");
+
+    // isItDraw = true;
+    // console.log("Draw?"+isItDraw);
+    // continueGame();
   }
 }
 
+
+// const filledBoxes = () => {
+//  if (noOfFilledBoxes === 9) {
+   
+//  }
+
+//   console.log(noOfFilledBoxes);
+// }
+
+
+const postDrawMessage = () => {
+
+  if (noOfFilledBoxes === 9) {
+    isItDraw = true;
+    player1.style.backgroundColor = "#33ccff"
+    player2.style.backgroundColor = "#33ccff"
+    bottomContainer.innerHTML = `DRAW - Current score >>>  ${player1.innerHTML}: ${player1Score} and ${player2.innerHTML}: ${player2Score}`
+    continueGame();
+  }
+}
 
 
 const disableGrid = () => {
@@ -154,18 +195,59 @@ const disableGrid = () => {
       box[i].style.backgroundColor = "gray";
       box[i].style.border = "1px solid gray";
     }     
+
+    // isItDraw();
     // box[i].style.color = "#33ccff";
     // box.innerHTML = i;
     // gridBox.style.backgroundColor = "rgb(154, 154, 207)";
     // console.log(box);
   }
+
+  continueGame();
 }
 
+
+const continueGame = () => {
+
+  bottomContainer.innerHTML = `${bottomContainer.innerHTML}` +  "<br>" + "<br>" + "Double click here to start a new game";
+
+  bottomContainer.addEventListener("dblclick", () => {
+    bottomContainer.innerHTML = "starting a new game";
+    gameOver = false;
+    player1Turn = true;
+    noOfFilledBoxes = 0;
+    clearGrid();
+    startGame();
+  })
+
+  // if (gameOver) {
+  //   const continuePlaying = confirm("Continue Playing?")
+  //   if (continuePlaying) {
+  //     console.log("yes");
+  //   } else {
+  //     console.log("no");
+  //   }
+  // }
+
+}
+
+const clearGrid = () => {
+
+  while (middleContainer.firstChild) {
+    middleContainer.removeChild(middleContainer.lastChild)
+  }
+
+  // const myNode = document.getElementById("foo");
+  // while (myNode.firstChild) {
+  //   myNode.removeChild(myNode.lastChild);
+  // }
+}
 
 const startGame = () => {
   createGrid();
   getPlayerName();
   gamePlay();
+  // postDrawMessage();
 
 }
 
