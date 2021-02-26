@@ -63,12 +63,6 @@ const gamePlay = () => {
           player1.style.backgroundColor = "rgb(154, 154, 207)"
           player2.style.backgroundColor = "#33ccff"
           box[i].style.backgroundColor = "black";
-          box[i].style.color = "#33ccff";
-          box[i].style.textAlign = "center";
-          box[i].style.fontSize = "50pt";
-          box[i].style.display = "flex";
-          box[i].style.alignItems = "center";
-          box[i].style.justifyContent = "center";
           box[i].innerHTML = "X";
           noOfFilledBoxes += 1;
           player1Turn = !player1Turn;
@@ -83,12 +77,6 @@ const gamePlay = () => {
           player2.style.backgroundColor = "rgb(154, 154, 207)"
           player1.style.backgroundColor = "#33ccff"
           box[i].style.backgroundColor = "black";
-          box[i].style.color = "#33ccff";
-          box[i].style.textAlign = "center";
-          box[i].style.fontSize = "50pt";
-          box[i].style.display = "flex";
-          box[i].style.alignItems = "center";
-          box[i].style.justifyContent = "center";
           box[i].innerHTML = "O";
           noOfFilledBoxes += 1;
           player1Turn = !player1Turn;
@@ -97,14 +85,11 @@ const gamePlay = () => {
           console.log(noOfFilledBoxes);
           postDrawMessage();
         }
-        console.log("1-Draw?"+isItDraw);
 
       })
-      console.log("2-Draw?"+isItDraw);
     
   }
   console.log(box);
-  console.log("3-Draw?"+isItDraw);
 }
 
 
@@ -122,13 +107,11 @@ const winner = () => {
 
         if (player1Turn) {
           player2Score += 1;
-          // bottomContainer.style.fontSize = "20pt";
           bottomContainer.innerHTML = `${player2.innerHTML} Won. Current score >>>  ${player1.innerHTML}: ${player1Score} and ${player2.innerHTML}: ${player2Score}`
           player1.style.backgroundColor = "rgb(154, 154, 207)"
           player2.style.backgroundColor = "yellow"
         } else {
           player1Score += 1;
-          // bottomContainer.style.fontSize = "20pt";
           bottomContainer.innerHTML = `${player1.innerHTML} Won. Current score >>>  ${player1.innerHTML}: ${player1Score} and ${player2.innerHTML}: ${player2Score}`
           player2.style.backgroundColor = "rgb(154, 154, 207)"
           player1.style.backgroundColor = "yellow"
