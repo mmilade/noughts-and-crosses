@@ -53,36 +53,13 @@ main .container {
   padding: 10px;
 }
 
-/* .middle {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-around;
-  gap: 10px;
-  height: 400px;
-  padding: 10px;
-} */
-
-/* .middle div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .middle div {
-  /* box[i].style.backgroundColor = "black";
-  box[i].style.color = "#33ccff";
-  box[i].style.textAlign = "center";
-  box[i].style.fontSize = "50pt";
-  box[i].style.display = "flex";
-  box[i].style.alignItems = "center";
-  box[i].style.justifyContent = "center"; */
   display: flex;
   align-items: center;
   justify-content: center;
   color: #33ccff;
   text-align: center;
   font-size: 50pt;
-
 
 }
 
