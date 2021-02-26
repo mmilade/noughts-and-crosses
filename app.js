@@ -16,8 +16,23 @@ let player2Score = 0;
 let player1Turn = true;
 let gameOver = false;
 let isItDraw = false;
-noOfFilledBoxes = 0;
-let box = []
+let noOfFilledBoxes = 0;
+let box = [];
+let currentPlayer = ""
+let lastPlayer = ""
+let playerSymbol = ""
+
+
+if (player1Turn) {
+  currentPlayer = "player1"
+  lastPlayer = "player2"
+  playerSymbol = "X"
+} else {
+  currentPlayer = "player2"
+  lastPlayer = "player1"
+  playerSymbol = "O"
+}
+
 
 
 const createGrid = () => {
@@ -46,7 +61,7 @@ const getPlayerName = () => {
 
 
 const gamePlay = () => {
-  bottomContainer.innerHTML = `${player1.innerHTML} please start...`
+  bottomContainer.innerHTML = "Player 1 please start..."
   box = document.querySelectorAll(".middle > div")
   for (let i = 0; i < 9; i++) {
 
