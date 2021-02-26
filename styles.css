@@ -10,7 +10,9 @@ body {
 }
 
 main {
-  border: 1px solid red;
+  border: 2px solid orange;
+  background-color: gray;
+  border-radius: 10px;
   width: 600px;
   height: 600px;
   padding: 10px;
@@ -26,6 +28,7 @@ main div {
 
 main .container {
   background-color: rgb(154, 154, 207);
+  /* background-color: #8884FF; */
 }
 
 .top {
