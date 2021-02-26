@@ -17,10 +17,6 @@ let player1Turn = true;
 let gameOver = false;
 let isItDraw = false;
 noOfFilledBoxes = 0;
-// player1.innerHTML = player1.innerHTML + " - Score: " + player1Score
-// player2.innerHTML = player2.innerHTML + " - Score: " + player2Score
-// const box = document.createElement("div");
-// const box = document.querySelectorAll(".middle > div")
 let box = []
 
 
@@ -53,10 +49,6 @@ const gamePlay = () => {
   bottomContainer.innerHTML = `${player1.innerHTML} please start...`
   box = document.querySelectorAll(".middle > div")
   for (let i = 0; i < 9; i++) {
-    // if (gameOver === true) {
-    //   console.log(gameOver);
-    //   break;
-    // } 
 
       box[i].addEventListener("click", () => {
 
@@ -80,13 +72,10 @@ const gamePlay = () => {
           box[i].innerHTML = "X";
           noOfFilledBoxes += 1;
           player1Turn = !player1Turn;
-          // player1.innerHTML += " 1"
           bottomContainer.innerHTML = `Next turn: ${player2.innerHTML}`
           winner();
-          // filledBoxes();
           console.log(noOfFilledBoxes);
           postDrawMessage();
-          // console.log("Draw?"+isItDraw);
           }
 
           
@@ -103,13 +92,10 @@ const gamePlay = () => {
           box[i].innerHTML = "O";
           noOfFilledBoxes += 1;
           player1Turn = !player1Turn;
-          // player2.innerHTML += " 2"
           bottomContainer.innerHTML = `Next turn: ${player1.innerHTML}`
           winner();
           console.log(noOfFilledBoxes);
           postDrawMessage();
-          // filledBoxes();
-          // console.log("Draw?"+isItDraw);
         }
         console.log("1-Draw?"+isItDraw);
 
@@ -119,7 +105,6 @@ const gamePlay = () => {
   }
   console.log(box);
   console.log("3-Draw?"+isItDraw);
-  // isItDraw = true;
 }
 
 
@@ -141,39 +126,22 @@ const winner = () => {
           bottomContainer.innerHTML = `${player2.innerHTML} Won. Current score >>>  ${player1.innerHTML}: ${player1Score} and ${player2.innerHTML}: ${player2Score}`
           player1.style.backgroundColor = "rgb(154, 154, 207)"
           player2.style.backgroundColor = "yellow"
-          // gameOver = true;
         } else {
           player1Score += 1;
           // bottomContainer.style.fontSize = "20pt";
           bottomContainer.innerHTML = `${player1.innerHTML} Won. Current score >>>  ${player1.innerHTML}: ${player1Score} and ${player2.innerHTML}: ${player2Score}`
           player2.style.backgroundColor = "rgb(154, 154, 207)"
           player1.style.backgroundColor = "yellow"
-          // gameOver = true;
         }
 
       gameOver = true;
       isItDraw = false;
-      // console.log("Draw?"+isItDraw);
       console.log(gameOver);
       disableGrid();
-      // filledBoxes();
-      // continueGame();
   } else {
 
-    // isItDraw = true;
-    // console.log("Draw?"+isItDraw);
-    // continueGame();
   }
 }
-
-
-// const filledBoxes = () => {
-//  if (noOfFilledBoxes === 9) {
-   
-//  }
-
-//   console.log(noOfFilledBoxes);
-// }
 
 
 const postDrawMessage = () => {
@@ -196,11 +164,6 @@ const disableGrid = () => {
       box[i].style.border = "1px solid gray";
     }     
 
-    // isItDraw();
-    // box[i].style.color = "#33ccff";
-    // box.innerHTML = i;
-    // gridBox.style.backgroundColor = "rgb(154, 154, 207)";
-    // console.log(box);
   }
 
   continueGame();
@@ -220,15 +183,6 @@ const continueGame = () => {
     startGame();
   })
 
-  // if (gameOver) {
-  //   const continuePlaying = confirm("Continue Playing?")
-  //   if (continuePlaying) {
-  //     console.log("yes");
-  //   } else {
-  //     console.log("no");
-  //   }
-  // }
-
 }
 
 const clearGrid = () => {
@@ -237,22 +191,16 @@ const clearGrid = () => {
     middleContainer.removeChild(middleContainer.lastChild)
   }
 
-  // const myNode = document.getElementById("foo");
-  // while (myNode.firstChild) {
-  //   myNode.removeChild(myNode.lastChild);
-  // }
 }
 
 const startGame = () => {
   createGrid();
   getPlayerName();
   gamePlay();
-  // postDrawMessage();
 
 }
 
 startGame();
-// window.onload = startGame();
 
 
 // archives
